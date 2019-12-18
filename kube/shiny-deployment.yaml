@@ -41,9 +41,3 @@ spec:
                     key: shinyport
           ports:
             - containerPort: 3838
-          volumeMounts:
-            - name: mongo-cm-volume
-      volumes:
-        - name: mongo-cm-volume
-          configMap:
-            name: mongo-cm
