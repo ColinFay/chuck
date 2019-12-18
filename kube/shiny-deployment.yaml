@@ -23,7 +23,7 @@ spec:
               value: 
                 valueFrom:
                   configMapKeyRef: 
-                    name: special-config
+                    name: mongo-cm
                     key: mongoport
             - name: MONGOURL
               value: chuck-mongo
@@ -37,7 +37,7 @@ spec:
               value: 
                 valueFrom:
                   configMapKeyRef: 
-                    name: special-config
+                    name: mongo-cm
                     key: shinyport
           ports:
             - containerPort: 3838
