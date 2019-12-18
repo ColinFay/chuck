@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: chuck
-          image: colinfay/chuck:latest
+          image: colinfay/chuck:0.0.1
           env:
             - name: MONGOPORT
               valueFrom:
