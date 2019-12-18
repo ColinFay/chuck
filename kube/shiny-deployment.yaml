@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chuck-shiny
+  labels:
+    app: chuck-shiny
+spec:
+  selector:
+    matchLabels:
+      app: shiny
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: shiny
+        tier: frontend
+    spec:
+      containers:
+        - name: chuck
+          image: colinfay/chuck:latest
+          env:
+            - name: MONGOPORT
+              value: 27017
+            - name: MONGOURL
+              value: chuck-mongo
+            - name: MONGOURL
+              value: chuck-mongo
+            - name: MONGODB
+              value: pouet
+            - name: MONGOCOLLECTION
+              value: pouet
+            - name: PORT
+              value: 3838
+          ports:
+            - containerPort: 3838

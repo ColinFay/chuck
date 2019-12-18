@@ -1,8 +1,18 @@
+# Chuck 
+
+`Chuck` is a 10x Shiny app designed as a playground for deploying Shiny apps to Docker / Kubernetes.
+
+It contains a Shiny app that needs a Mongo DB backend to work. The connection information are passed with environment variables. 
+
+The app simply pulls a random Joke from the Chuck Norris API (<http://api.icndb.com/jokes/random>), and allow you to save it to the mongo db instance, or skip. 
+
+The UI also allows you to retrieve information from the MongoDB instance. 
+
 ## Infrastructure
 
 ### chuck
 
-Shiny apps that reads and write in a mongo instance at : 
+The Shiny apps that reads and write in a mongo instance at : 
 
 ```r
 mongo_port <- Sys.getenv("MONGOPORT", 27017)
@@ -29,7 +39,9 @@ docker run -v $(pwd)/db:/data/db -p 12334:27017 -d mongo:3.4
 ## Build 
 
 ```
-docker build -t chuck .
+git clone https://github.com/ColinFay/chuck && cd chuck && docker build -t chuck .
+# OR 
+docker pull colinfay/chuck
 docker pull mongo:3.4 
 ```
 

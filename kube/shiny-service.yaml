@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chuck-shiny
+  labels:
+    app: chuck-shiny
+spec:
+  ports:
+    - port: 3838       # Port du service (écoute)
+      targetPort: 3838 # Port du pod (destination)
+  selector:
+    app: shiny
+    tier: frontend
+  type: NodePort
