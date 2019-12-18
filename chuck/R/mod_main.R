@@ -100,7 +100,7 @@ mod_main_server <- function(
   output$tbl <- renderPrint({
     bla$gue
     cli::cat_rule("Number of Jokes saved in the DB:")
-    cli::cat_line(nrow(get_mongo()$find()))
+    cli::cat_line(get_mongo()$count())
     cli::cat_line("")
     cli::cat_rule("Information about the DB:")
     purrr::iwalk(

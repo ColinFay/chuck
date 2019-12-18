@@ -39,7 +39,7 @@ docker run -v $(pwd)/db:/data/db -p 12334:27017 -d mongo:3.4
 ## Build 
 
 ```
-git clone https://github.com/ColinFay/chuck && cd chuck && docker build -t chuck .
+git clone https://github.com/ColinFay/chuck && cd chuck && docker build -t colinfay/chuck .
 # OR 
 docker pull colinfay/chuck
 docker pull mongo:3.4 
@@ -52,12 +52,13 @@ docker network create chucknet
 
 docker run -v $(pwd)/db:/data/db -p 27017:27017 -d --name mongo --net chucknet mongo:3.4
 
-docker run -e MONGOPORT=27017 -e MONGOURL=mongo -e MONGODB=pouet -e MONGOCOLLECTION=pouet -p 3838:3838 --name chuck --net chucknet -d chuck && sleep 2 && open http://localhost:3838
+docker run -e MONGOPORT=27017 -e MONGOURL=mongo -e MONGODB=pouet -e MONGOCOLLECTION=pouet -p 3838:3838 --name chuck --net chucknet -d colinfay/chuck && sleep 2 && open http://localhost:3838
 
 # TRY ANOTHER MONGODB & SHINY PORT
 
-docker run -e PORT=1234 -e MONGOPORT=27017 -e MONGOURL=mongo -e MONGODB=pif -e MONGOCOLLECTION=paf -p 1234:1234 --name chuckbis --net chucknet -d chuck && sleep 2 && open http://localhost:1234
+docker run -e PORT=1234 -e MONGOPORT=27017 -e MONGOURL=mongo -e MONGODB=pif -e MONGOCOLLECTION=paf -p 1234:1234 --name chuckbis --net chucknet -d colinfay/chuck && sleep 2 && open http://localhost:1234
 ```
+
 
 ## Stop 
 
@@ -67,3 +68,4 @@ docker stop chuckbis && docker rm chuckbis
 docker stop mongo && docker rm mongo && rm -rf $(pwd)/db
 docker network rm chucknet
 ```
+
