@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  mongoport: "27017"
+  shinyport: "3838"
+metadata:
+  name: mongo-cm
+  namespace: default

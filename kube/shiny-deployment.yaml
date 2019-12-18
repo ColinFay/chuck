@@ -20,7 +20,11 @@ spec:
           image: colinfay/chuck:latest
           env:
             - name: MONGOPORT
-              value: "27017"
+              value: 
+                valueFrom:
+                  configMapKeyRef: 
+                    name: special-config
+                    key: mongoport
             - name: MONGOURL
               value: chuck-mongo
             - name: MONGOURL
@@ -30,6 +34,16 @@ spec:
             - name: MONGOCOLLECTION
               value: pouet
             - name: PORT
-              value: "3838"
+              value: 
+                valueFrom:
+                  configMapKeyRef: 
+                    name: special-config
+                    key: shinyport
           ports:
             - containerPort: 3838
+          volumeMounts:
+            - name: mongo-cm-volume
+      volumes:
+        - name: mongo-cm-volume
+          configMap:
+            name: mongo-cm
