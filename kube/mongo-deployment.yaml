@@ -20,3 +20,6 @@ spec:
           image: mongo:3.4
           ports:
             - containerPort: 27017
+          volumeMounts:
+            - name: mongo-pvc
+              mountPath: /data/db
