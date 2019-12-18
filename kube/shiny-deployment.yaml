@@ -22,20 +22,24 @@ spec:
             - name: MONGOPORT
               valueFrom:
                 configMapKeyRef: 
-                  name: mongo-cm
+                  name: shiny-cm
                   key: mongoport
             - name: MONGOURL
               value: chuck-mongo
-            - name: MONGOURL
-              value: chuck-mongo
             - name: MONGODB
-              value: pouet
+              valueFrom:
+                secretKeyRef: 
+                  name: shiny-secret
+                  key: db
             - name: MONGOCOLLECTION
-              value: pouet
+              valueFrom:
+                secretKeyRef: 
+                  name: shiny-secret
+                  key: collection
             - name: PORT
               valueFrom:
                 configMapKeyRef: 
-                  name: mongo-cm
+                  name: shiny-cm
                   key: shinyport
           ports:
             - containerPort: 3838
