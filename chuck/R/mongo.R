@@ -14,6 +14,7 @@ launch_mongo <- function(
       port
     )
   )
+  
   session$userData$mongo_stats <- list(
     collection = collection, 
     db = db, 

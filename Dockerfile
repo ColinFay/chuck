@@ -19,7 +19,7 @@ WORKDIR /build_zone
 RUN R -e 'remotes::install_local(upgrade = "never")'
 
 ENV PORT=3838
-ENV MONGOPORT=27107
+ENV MONGOPORT=27017
 ENV MONGOURL=127.0.0.1
 ENV MONGODB=dockerdb
 ENV MONGOCOLLECTION=dockercollec
