@@ -1,0 +1,25 @@
+body {
+    background-color: #c00200;
+    color: white;
+}
+
+.inner {
+    border: 1rem solid;
+    position: fixed;
+    top: 2em;
+    left: 2em;
+    right: 2em;
+    bottom: 2em;
+    border-radius: 25px;
+    padding: 2em;
+}
+
+.emo{
+  font-size:100px;
+  background: transparent;
+  border: none;
+}
+
+table{
+  color:black;
+}

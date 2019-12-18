@@ -1,0 +1,17 @@
+Package: chuck
+Title: An Amazing Shiny App
+Version: 0.0.0.9000
+Authors@R: person("firstname", "lastname", email = "your@email.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    shiny (>= 1.4.0),
+    golem (>= 0.1),
+    htmltools (>= 0.4.0),
+    jsonlite (>= 1.6),
+    cli (>= 2.0.0),
+    mongolite (>= 2.1.0),
+    purrr (>= 0.3.2)
+RoxygenNote: 6.1.1
