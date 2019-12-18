@@ -20,7 +20,7 @@ spec:
           image: colinfay/chuck:latest
           env:
             - name: MONGOPORT
-              value: 27017
+              value: "27017"
             - name: MONGOURL
               value: chuck-mongo
             - name: MONGOURL
@@ -30,6 +30,6 @@ spec:
             - name: MONGOCOLLECTION
               value: pouet
             - name: PORT
-              value: 3838
+              value: "3838"
           ports:
             - containerPort: 3838
