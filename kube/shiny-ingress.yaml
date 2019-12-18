@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: shiny-ingress
+  labels:
+    app: chuck-shiny
+spec:
+  rules:
+    - host: shiny.app.149.202.181.46.nip.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: chuck-shiny
+              servicePort: 80
