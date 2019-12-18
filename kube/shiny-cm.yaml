@@ -4,5 +4,5 @@ data:
   mongoport: "27017"
   shinyport: "3838"
 metadata:
-  name: mongo-cm
+  name: shiny-cm
   namespace: default
