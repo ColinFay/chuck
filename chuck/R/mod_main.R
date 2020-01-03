@@ -58,6 +58,23 @@ mod_main_ui <- function(id){
           inputId = ns("showdb"),
           "Show DB content"
         )
+      ), 
+      col_12(
+        HTML("&nbsp;")
+      ),
+      col_6(
+        align = "center",
+        actionButton(
+          inputId = ns("showsession"),
+          "Show R Session"
+        )
+      ), 
+      col_6(
+        align = "center",
+        actionButton(
+          inputId = ns("showip"),
+          "Server wtfismyip"
+        )
       )
     )
   )
@@ -121,12 +138,33 @@ mod_main_server <- function(
   })
   
   observeEvent(input$showdb, {
-
     showModal(modalDialog(
       size = "l",
       title = "Infos",
       renderTable({
         purrr::map_df(get_mongo()$find(), as.character)
+      })
+    ))
+  })
+  
+  observeEvent(input$showsession, {
+    showModal(modalDialog(
+      size = "l",
+      title = "Infos",
+      renderPrint({
+        cli::cat_rule("utils::sessionInfo()")
+        utils::sessionInfo()
+      })
+    ))
+  })
+  
+  observeEvent(input$showip, {
+    showModal(modalDialog(
+      size = "l",
+      title = "WTFISMYIP",
+      renderPrint({
+        cli::cat_rule("https://wtfismyip.com results")
+        jsonlite::read_json("https://wtfismyip.com/json")
       })
     ))
   })
