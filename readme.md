@@ -30,13 +30,15 @@ launch_mongo(
 )
 ```
 
-### Mongo
+#### Mongo
 
 ``` 
 docker run -v $(pwd)/db:/data/db -p 12334:27017 -d mongo:3.4 
 ```
 
-## Build 
+## Local Deployment
+
+### Build 
 
 ```
 git clone https://github.com/ColinFay/chuck && cd chuck && docker build -t colinfay/chuck .
@@ -45,7 +47,7 @@ docker pull colinfay/chuck
 docker pull mongo:3.4 
 ```
 
-## Launch 
+### Launch 
 
 ```
 docker network create chucknet
@@ -60,7 +62,7 @@ docker run -e PORT=1234 -e MONGOPORT=27017 -e MONGOURL=mongo -e MONGODB=pif -e M
 ```
 
 
-## Stop 
+### Stop 
 
 ```
 docker stop chuck && docker rm chuck
@@ -68,4 +70,22 @@ docker stop chuckbis && docker rm chuckbis
 docker stop mongo && docker rm mongo && rm -rf $(pwd)/db
 docker network rm chucknet
 ```
+
+## Deploy on GKE
+
+### Create Cluster
+
+### Open Cloud Shell
+
++ Open it in your project, for ex `gcloud container clusters get-credentials my-first-cluster-1 --zone us-central1-c --project bla-bla-12345`
+
+```
+cd chuck/
+kubectl apply -f kube/
+kubectl get pods
+```
+
++ Go to services & Ingress, create the ingress for Chuck shiny
+
++ Wait for ingress to be ready
 
